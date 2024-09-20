@@ -1,7 +1,8 @@
 function solution(numbers) {
-    numbers = numbers.map((num) => num + '');
+    numbers.sort((a, b) => (String(b) + String(a)) - (String(a) + String(b)));
 
-    const answer = numbers.sort((a,b) => (b + a) - (a + b)).join("");
+    const answer = numbers.join("");
     
-    return answer[0] == "0" ? "0" : answer
+    // '0000' 같은 경우를 방지하기 위해 첫 번째 문자가 '0'이라면 '0'을 반환
+    return answer[0] == "0" ? "0" : answer;
 }
